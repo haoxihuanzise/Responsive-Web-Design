@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>flex布局联系</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_qd3xdhtb4mb73nmi.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            font-size: 100px;
+        }
+        .main{
+            /*width: 400px;*/
+            font-size: 0.16rem;
+        }
+        .flex-box{
+            width: 100%;
+            height: 200px;
+
+            /*display: inline-flex;*/
+            display: flex;
+            justify-content: flex-start; /*justify-content属性定义了项目在主轴上的对齐方式。 justify-content: flex-start | flex-end | center | space-between | space-around;*/
+            align-items: baseline;  /*align-items属性定义项目在交叉轴上如何对齐。 align-items: flex-start | flex-end | center | baseline | stretch;*/
+            /*flex-flow: row wrap;  /!*控制水平排列，并且换行，默认不换行 nowrap*!/*/
+            flex-direction: row;
+            flex-wrap: wrap;
+            border: 1px solid #000;
+        }
+        .flex-box li{
+            text-align: center;
+            padding: 10px 0 ;
+            width: 25%;
+            box-sizing: border-box;
+            display: flex; /*可以规定子元素也是flex并且重新设立轴线布局*/
+            flex-direction: column;
+        }
+        .flex-box li i{
+            display: block;
+            font-size: 30px;
+        }
+        .left-right-box{
+            font-size: 0.16rem;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row;
+            flex-wrap: nowrap;
+        }
+        .left-flex{
+            width: 25%;
+            height: 80px;
+            box-sizing: border-box;
+            border: 1px solid #00b3ee;
+        }
+        .left-flex img{
+            width: 100%;
+            height: inherit;
+        }
+        .right-flex{
+            width: 75%;
+            height: 80px;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid red;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+        }
+        .right-text{
+            width: 80%;
+            font-size:0.14rem
+        }
+        .right-price{
+            width: 20%;
+        }
+        .right-price span{
+            position: relative;
+            top: 0.20rem;
+            left: 0.20rem;
+            font-size: 22px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+    <ul class="flex-box">
+        <li><i class="iconfont icon-netword"></i><span>大牌抢购</span></li>
+        <li><i class="iconfont icon-time"></i><span>大牌抢购</span></li>
+        <li><i class="iconfont icon-email"></i><span>大牌抢购</span></li>
+        <li><i class="iconfont icon-yijiandan"></i><span>大牌抢购</span></li>
+        <li><i class="iconfont icon-telephone"></i><span>大牌抢购</span></li>
+        <li><i class="iconfont icon-home"></i><span>大牌抢购</span></li>
+        <li><i class="iconfont icon-huanying"></i><span>大牌抢购</span></li>
+        <li><i class="iconfont icon-sixin"></i><span>大牌抢购</span></li>
+    </ul>
+</div>
+<div class="left-right-box">
+    <div class="left-flex">
+        <img  src="../PC/bootstrap/images/banner.jpg"/>
+    </div>
+    <div class="right-flex">
+        <div class="right-text">
+            <div class="text-title">年年有余</div>
+            <div class="text-position"><i class="iconfont icon-sixin"></i>广州市广东省</div>
+            <div class="text-position"><i class="iconfont icon-sixin"></i>广州市广东省</div>
+        </div>
+        <div class="right-price"><span>8折</span></div>
+    </div>
+</div>
+<script src="REM.js"></script>
+<!--REM+flex+%=mobile（移动端方案）-->
+<!--@media+px+%=pc（pc端方案）-->
+</body>
+</html>

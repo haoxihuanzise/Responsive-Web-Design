@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>自适应媒体查询</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            width: 100vmin;
+            height: 100vmin;
+        }
+        .bg-red,.bg-blue,.bg-green{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        .bg-red{
+            background-color: red;
+        }
+
+        .container span{
+            /*font-size: 14%;*/
+            letter-spacing: 0;
+            display:inline-block;
+            /*float: left;  /!*用float可以，用display：inline-block不行,，因为响铃的inline-block会有空隙，就是写代码的时候<div>之间会换行，有空格，如果不换行每空格，那就没事，但显然那样不利于阅读，也很蠢<*!/*/
+        }
+        .container span a{
+            font-size: 20px;
+        }
+        .row {
+            /*font-size: 0;/!*去除inline-block的空隙，这种方法会比较限制子元素的文字，文字必须嵌套在另一个设定了字体大小的标签当中*!/*/
+            font-size: 0;
+            /*letter-spacing: -4px;/!*如果chrome不支持用font-size=0的属性去除空隙，就用这个属性*!/*/
+            margin-left: -15px;
+            margin-right: -15px;
+            font-size:100px;
+        }
+        [class*='col-']{
+            position: relative;
+            min-height: 1px;
+            padding-left: 15px;
+            padding-right: 15px;
+            /*margin-left:3px;/!**不能设置margin*!/*/
+            border:1px solid #FF6633;
+            box-sizing: border-box;  /*设置了border-box,padding,border就都算是width，也就不会超出了*/
+        }
+
+        .container{
+            padding:0 15px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .bg-red{
+            background-color: red;
+        }
+        .em{
+            font-size:0.12em;
+        }
+        /*屏幕宽度>=的时候,但由于后面那句，所以又<1266px*/
+        @media (min-width: 768px){
+            .container{
+                width: 768px;
+            }
+            .bg-blue{
+                background-color: blue;
+            }
+            .col-md-9{
+                width: 75%;
+            }
+            .col-md-3{
+                width: 25%;
+            }
+
+        }
+        /*屏幕宽度>=1266的时候*/
+        @media  (min-width: 1200px){
+            .container{
+                width: 1200px;
+            }
+            .bg-green{
+                background-color: green;
+            }
+            .col-lg-6{
+                width: 50%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<p>所以，以下定义3个类，控制同一个属性，在媒体查询下，就能根据需要给不同的属性值，这样就做到了自自适应宽度布局</p>
+<!--<div class="bg-red bg-blue bg-green"></div>-->
+<div class="container">
+    <div class="row">
+        <span class="col-sm-12 col-md-9 col-lg-6 em">
+           div1
+        </span>
+        <span class="col-sm-12 col-md-3 col-lg-6 em">
+           div2
+        </span>
+    </div>
+
+
+</div>
+</body>
+</html>
